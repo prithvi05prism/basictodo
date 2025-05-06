@@ -124,7 +124,7 @@ const deleteTask = async (req, res) => {
         const task = await Task.findByPk(id);
 
         if(task){
-            await Task.destroy({where: {id: id}});
+            await Task.destroy({where: {taskID: id}});
             console.log("[deleteTask Route] Deleted Successfully Task with ID: ", id);
             return res.status(200).json({
                 status: "success",

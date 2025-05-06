@@ -6,7 +6,7 @@ const {Sequelize} = require("sequelize");
 const {postgresClient} = require("./db/postgres");
 const {alterSync, forceSync} = require('./db/sync');
 
-const {globalErrorHandler, requestLogger} = require("./middleware/log")
+const {globalErrorHandler, requestLogger} = require("./middleware/logger")
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -55,6 +55,6 @@ const taskRoutes = require('./routes/tasks');
 app.use('/task', taskRoutes);
 
 // TEST
-app.get("/test", async (req, res) => {
+app.get("/", async (req, res) => {
   return res.json({ "Message": "Application is RUNNING!!!" });
 });

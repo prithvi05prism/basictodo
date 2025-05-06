@@ -1,7 +1,7 @@
 const {Sequelize} = require("sequelize");
 
 const postgresClient = new Sequelize('todolist', 'postgres', 'postgres', {
-    host: 'tododb',
+    host: 'localhost',
     port: 5432,
     dialect: 'postgres',
 });
