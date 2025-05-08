@@ -25,7 +25,10 @@ const addTask = async (req, res) => {
             title: title,
             description: description
         });
-        console.log("[addTask Route] New task created: ", task);
+        const tasks = await Task.findAll({
+            attributes: ['taskID', 'title', 'description', 'status']
+        });
+        console.log("[addTask Route] New task created: ", tasks);
         return res.status(200).json({
             status: "success", 
             message: "task created succesfully", 
